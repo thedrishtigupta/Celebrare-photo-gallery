@@ -61,15 +61,15 @@ function Gallery() {
 
     if(loading) {
         return (
-            <div className="flex justify-center items-center min-h-screen">
-                <div className="w-12 h-12 border-4 border-gray-300 border-t-red-600 rounded-full animate-spin"></div>
+            <div className="flex justify-center items-center min-h-[60vh]">
+                <div className="w-12 h-12 border-2 border-pale-sage border-t-forest rounded-full animate-spin"></div>
             </div>
         )
     }
 
     if(error) {
         return (
-            <div className="text-center py-20 text-red-600">
+            <div className="text-center py-20 font-sans text-forest">
                 Error: {error}
             </div>
         )
@@ -78,19 +78,19 @@ function Gallery() {
     return (
         <div>
 
-            <div className="mb-8">
+            <div className="max-w-xl mx-auto mb-8">
                 <input
                     type="text"
                     placeholder="Search photos by Author..."
                     value={search}
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-5 py-3.5 bg-white border border-pale-sage rounded-full font-sans text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:ring-2 focus:ring-pale-sage transition-all duration-200"
                 />
             </div>
 
             {
                 filteredPhotos.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
                         {filteredPhotos.map((photo) => (
                             <PhotoCard
                                 key={photo.id}
@@ -109,10 +109,10 @@ function Gallery() {
                     </div>
                 ) : (
                     <div className="text-center py-20">
-                        <h2 className="text-xl font-semibold text-gray-700">
+                        <h2 className="font-heading text-3xl font-medium text-forest">
                             No photos found
                         </h2>
-                        <p className="text-gray-500 mt-2">
+                        <p className="font-sans text-sm text-charcoal/60 mt-2">
                             Try searching with another author name.
                         </p>
                     </div>
