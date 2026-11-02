@@ -1,16 +1,119 @@
-# React + Vite
+# Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive photo gallery built with React, Vite and Tailwind CSS. The application fetches photos from the Picsum API and allows users to search by author and manage their favourite photos.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Photo Gallery:** Fetches and displays 30 photos from the Picsum API.
+- **Responsive Design:** Adapts to desktop (4 columns), tablet (2 columns) and mobile (1 column).
+- **Author Search:** Search photos instantly by author name without additional API requests.
+- **Favourites:** Add or remove photos from favourites.
+- **Persistent Storage:** Favourites are saved in localStorage and restored when the page is refreshed.
+- **Loading State:** Displays a loading indicator while photos are being fetched.
+- **Error Handling:** Displays an error message if the API request fails.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Tailwind CSS
+- JavaScript
+- Picsum Photos API
+- Browser localStorage
 
-## Expanding the ESLint configuration
+## React Concepts Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Concept | Implementation |
+|---|---|
+| `useState` | Managing search input, photos, loading and error states |
+| `useEffect` | Fetching photos and synchronizing favourites with localStorage |
+| `useCallback` | Memoizing the search handler |
+| `useMemo` | Optimizing the filtered photos calculation |
+| `useReducer` | Managing favourite photo state |
+| Custom Hooks | Encapsulating API fetching logic in `useFetchPhotos` |
+
+## API
+
+Photos are fetched from:
+
+`https://picsum.photos/v2/list?limit=30`
+
+The API provides photo information including the image URL, author and photo ID.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/thedrishtigupta/Celebrare-photo-gallery
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd photo-gallery
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL provided by Vite in your browser.
+
+### Production Build
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+photo-gallery/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Gallery.jsx
+│   │   └── PhotoCard.jsx
+│   ├── hooks/
+│   │   └── useFetchPhotos.js
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
+```
+
+## Author
+
+**Drishti Gupta**
+
+- GitHub: [@thedrishtigupta](https://github.com/thedrishtigupta)
+
+Developed as part of the Celebrare Frontend React Internship Assignment.
